@@ -1,0 +1,318 @@
+/* חוברת בירור מידות לשידוכים - עיצוב מתקדם עם פונטים עבים מותאמים לעברית */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&family=Heebo:wght@400;500;600;700;800;900&family=Secular+One&family=Assistant:wght@600;700;800&display=swap');
+
+:root {
+  --primary-deep: #1e1b4b;       /* Deep Indigo */
+  --primary-navy: #0f172a;       /* Slate Navy */
+  --accent-gold: #d97706;        /* Warm Gold Amber */
+  --accent-gold-light: #fef3c7;  /* Soft Warm Champagne */
+  --accent-gold-dark: #b45309;
+  --bg-warm: #faf8f5;            /* Off-white warm cream */
+  --bg-card: #ffffff;
+  --border-warm: #e8e2d8;
+  --text-main: #0f172a;          /* Rich deep dark for high contrast */
+  --text-muted: #475569;
+  --green-flag: #10b981;
+  --red-flag: #ef4444;
+  --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  --navy-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
+  --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 20px 30px -10px rgba(217, 119, 6, 0.16), 0 10px 15px -5px rgba(15, 23, 42, 0.09);
+  
+  /* Font Family Variable (Defaults to Rubik ExtraBold) */
+  --main-font: 'Rubik', 'Heebo', sans-serif;
+  --display-font: 'Rubik', 'Heebo', sans-serif;
+}
+
+/* Font theme variants */
+body.font-theme-rubik {
+  --main-font: 'Rubik', sans-serif;
+  --display-font: 'Rubik', sans-serif;
+}
+
+body.font-theme-heebo {
+  --main-font: 'Heebo', sans-serif;
+  --display-font: 'Heebo', sans-serif;
+}
+
+body.font-theme-secular {
+  --main-font: 'Rubik', sans-serif;
+  --display-font: 'Secular One', 'Rubik', sans-serif;
+}
+
+body {
+  font-family: var(--main-font);
+  font-weight: 500;
+  background-color: var(--bg-warm);
+  color: var(--text-main);
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+/* Bold Display Titles */
+h1, h2, h3, h4, .font-serif-hebrew, .font-bold-hebrew {
+  font-family: var(--display-font);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.font-black-hebrew {
+  font-family: var(--display-font);
+  font-weight: 900;
+}
+
+/* Glassmorphism Navigation */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1.5px solid rgba(226, 218, 205, 0.85);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ede6;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hero Badge */
+.hero-pill {
+  background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
+  border: 1.5px solid #f59e0b;
+  color: #78350f;
+  font-weight: 700;
+}
+
+/* Card hover animation */
+.interactive-card {
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--card-shadow);
+  border-width: 1.5px;
+}
+.interactive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Date Mode Card (Single Focus Deck) */
+.deck-card {
+  perspective: 1000px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  border-width: 2px;
+}
+
+.deck-card.slide-next {
+  animation: slideInFromLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.deck-card.slide-prev {
+  animation: slideInFromRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Accordion Smooth Expand */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion-content.expanded {
+  max-height: 1200px;
+  transition: max-height 0.45s ease-in-out;
+}
+
+/* Badges with prominent weight */
+.badge-gold {
+  background: #fef3c7;
+  color: #78350f;
+  border: 1px solid #fcd34d;
+  font-weight: 700;
+}
+
+.badge-green {
+  background: #ecfdf5;
+  color: #064e3b;
+  border: 1px solid #6ee7b7;
+  font-weight: 700;
+}
+
+.badge-red {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  font-weight: 700;
+}
+
+.badge-blue {
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1px solid #93c5fd;
+  font-weight: 700;
+}
+
+.badge-indigo {
+  background: #eef2ff;
+  color: #312e81;
+  border: 1px solid #a5b4fc;
+  font-weight: 700;
+}
+
+/* Custom Radio / Rating Pill Buttons */
+.rating-pill input[type="radio"] {
+  display: none;
+}
+
+.rating-pill label {
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 1.5px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #334155;
+  transition: all 0.2s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rating-pill label:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.rating-pill input[type="radio"]:checked + label.rate-high {
+  background-color: #059669;
+  color: #ffffff;
+  border-color: #047857;
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.35);
+}
+
+.rating-pill input[type="radio"]:checked + label.rate-med {
+  background-color: #d97706;
+  color: #ffffff;
+  border-color: #b45309;
+  box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.35);
+}
+
+.rating-pill input[type="radio"]:checked + label.rate-check {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #b91c1c;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.35);
+}
+
+/* Game Mode & Interactive Deck Enhancements */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.coin-flip-anim {
+  animation: coinFlip 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes coinFlip {
+  0% { transform: rotateY(0deg) scale(1); }
+  50% { transform: rotateY(900deg) scale(1.25); }
+  100% { transform: rotateY(1800deg) scale(1); }
+}
+
+.wildcard-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fae8ff 50%, #e0e7ff 100%);
+  border: 2px solid #f59e0b;
+  box-shadow: 0 15px 35px -5px rgba(217, 119, 6, 0.25);
+}
+
+.floating-heart {
+  position: absolute;
+  pointer-events: none;
+  animation: floatUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes floatUpFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1.4);
+  }
+}
+
+.glow-turn-p1 {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4), 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+}
+
+.glow-turn-p2 {
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.4), 0 10px 25px -5px rgba(217, 119, 6, 0.2);
+}
+
+/* Modal Backdrop */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Rubik', sans-serif !important;
+  }
+  .no-print, nav, footer, button, .date-mode-controls {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .interactive-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    margin-bottom: 1rem !important;
+  }
+  .accordion-content {
+    max-height: none !important;
+    display: block !important;
+  }
+}
