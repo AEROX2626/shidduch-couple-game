@@ -216,7 +216,8 @@
               onchange="app.setDeckFilter('chapter', this.value)" 
               class="text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-xl px-3 py-1.5 font-medium text-slate-800 focus:outline-none focus:border-amber-500"
             >
-              <option value="all">כל 12 הפרקים (120 שאלות)</option>
+              <option value="all">כל 150 השאלות (כולל חימום)</option>
+              <option value="0">🌱 חימום ושבירת קרח (30 שאלות)</option>
               <option value="1">פרק א׳ — ענווה ומודעות עצמית</option>
               <option value="2">פרק ב׳ — כעס ושליטה עצמית</option>
               <option value="3">פרק ג׳ — סבלנות</option>
@@ -314,7 +315,7 @@
 
           <!-- Total Count Display -->
           <div id="questions-count-display" class="text-sm font-semibold text-slate-600">
-            120 שאלות במאגר
+            150 שאלות במאגר
           </div>
         </div>
 
@@ -323,7 +324,10 @@
           <span class="text-xs font-bold text-slate-500 ml-2">סינון לפי פרק:</span>
           
           <button onclick="app.setQuestionsChapterFilter('all', this)" class="chapter-filter-btn px-3 py-1 rounded-full text-xs font-semibold bg-amber-600 text-white shadow-xs">
-            כל 12 הפרקים
+            כל 150 השאלות
+          </button>
+          <button onclick="app.setQuestionsChapterFilter('0', this)" class="chapter-filter-btn px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 hover:bg-emerald-200">
+            🌱 חימום והיכרות (30)
           </button>
           <button onclick="app.setQuestionsChapterFilter('1', this)" class="chapter-filter-btn px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200">
             א׳: ענווה

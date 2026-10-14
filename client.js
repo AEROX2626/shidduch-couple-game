@@ -381,7 +381,7 @@ class ShidduchApp {
           <h3 class="text-2xl font-bold font-serif-hebrew text-slate-800 mb-2">לא נמצאו שאלות בסינון שנבחר</h3>
           <p class="text-slate-600 mb-6">נסה לשנות את הפרק או את מסנני המועדפים/זהב.</p>
           <button onclick="app.setDeckFilter('all')" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5 rounded-full font-medium transition shadow">
-            הצג את כל 120 השאלות
+            הצג את כל ${this.data.questions.length} השאלות
           </button>
         </div>
       `;
@@ -406,7 +406,7 @@ class ShidduchApp {
         <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2">
             <span class="bg-amber-50 text-amber-900 border border-amber-200 font-semibold px-3 py-1 rounded-full text-xs sm:text-sm">
-              שאלה ${q.id} מתוך 120
+              שאלה ${q.id} מתוך ${this.data.questions.length}
             </span>
             <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
               ${chapter ? chapter.title + ' — ' + chapter.name : ''}
